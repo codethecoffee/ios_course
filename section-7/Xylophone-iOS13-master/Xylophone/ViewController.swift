@@ -18,10 +18,15 @@ class ViewController: UIViewController {
      sent over to the parameter sender.
      */
     @IBAction func keyPressed(_ sender: UIButton) {
-        let currNote = sender.titleLabel!.text!.uppercased()
-//        print("Note: \(currNote)")
-        
+        let currNote = sender.currentTitle!.uppercased()
         playSound(note: currNote)
+        
+        // Halve opacity of button to provide feedback that
+        // button was clicked
+        sender.alpha /= 2
+        
+        // Return to original opacity 0.2 seconds after click
+        DispatchQueue.main.asyncAfter(deadline: .now() + 0.2, execute: {sender.alpha = 1})
 
     }
     
