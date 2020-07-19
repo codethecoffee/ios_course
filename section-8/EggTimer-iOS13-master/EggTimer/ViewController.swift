@@ -7,6 +7,8 @@
 //
 
 import UIKit
+import AVFoundation
+
 
 class ViewController: UIViewController {
     @IBOutlet weak var countdownLabel: UILabel!
@@ -18,6 +20,9 @@ class ViewController: UIViewController {
     var currHardness: String = ""
     var totalTime: Float = 0
     
+    let url = Bundle.main.url(forResource: "alarm_sound", withExtension: "mp3")
+    var alarmPlayer: AVAudioPlayer!
+
     // Declare an instance of Timer() so you can access it
     // in other functions like updateTimer()
     var timer = Timer()
@@ -45,6 +50,10 @@ class ViewController: UIViewController {
             print("Done")
             countdownLabel.text! = "Done!"
             
+            
+            alarmPlayer = try! AVAudioPlayer(contentsOf: url!)
+            alarmPlayer.play()
+
             // Invalidate method prevents updateTimer()
             // from being called indefinitely
             timer.invalidate()
