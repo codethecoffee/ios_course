@@ -46,6 +46,9 @@
                                         <state key="normal" title="Button 1" backgroundImage="choice1Background">
                                             <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         </state>
+                                        <connections>
+                                            <action selector="selectAnswer:" destination="BYZ-38-t0r" eventType="touchUpInside" id="qXg-ky-hk4"/>
+                                        </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Z9D-IC-UhZ">
                                         <rect key="frame" x="0.0" y="131.5" width="374" height="121.5"/>
@@ -53,6 +56,9 @@
                                         <state key="normal" title="Button 2" backgroundImage="choice2Background">
                                             <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         </state>
+                                        <connections>
+                                            <action selector="selectAnswer:" destination="BYZ-38-t0r" eventType="touchUpInside" id="4et-tD-YJx"/>
+                                        </connections>
                                     </button>
                                 </subviews>
                                 <constraints>
@@ -78,6 +84,13 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="2r6-BY-uUi"/>
                     </view>
+                    <connections>
+                        <outlet property="option1" destination="Ada-KC-cmm" id="Oq8-lK-D45"/>
+                        <outlet property="option1Button" destination="Ada-KC-cmm" id="kFJ-WN-Cog"/>
+                        <outlet property="option2" destination="Z9D-IC-UhZ" id="aOs-t5-x2y"/>
+                        <outlet property="option2Button" destination="Z9D-IC-UhZ" id="DUR-Xs-qTY"/>
+                        <outlet property="storyLabel" destination="WfW-dm-m4E" id="yPy-kl-yPo"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>

@@ -9,11 +9,22 @@
 import UIKit
 
 class ViewController: UIViewController {
+    @IBOutlet weak var storyLabel: UILabel!
+    @IBOutlet weak var option1Button: UIButton!
+    @IBOutlet weak var option2Button: UIButton!
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        
 
     }
+    
+    @IBAction func selectAnswer(_ sender: Any) {
+        
+        
+    }
+    
 
 
 }
