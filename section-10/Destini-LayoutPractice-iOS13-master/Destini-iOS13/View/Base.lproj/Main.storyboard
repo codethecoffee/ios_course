@@ -16,7 +16,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="background" translatesAutoresizingMaskIntoConstraints="NO" id="Yyb-p2-beT">
-                                <rect key="frame" x="0.0" y="0.0" width="414.00000000000023" height="896"/>
+                                <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                             </imageView>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="TCC-6D-87R">
                                 <rect key="frame" x="20" y="44" width="374" height="545"/>
@@ -47,7 +47,7 @@
                                             <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         </state>
                                         <connections>
-                                            <action selector="selectAnswer:" destination="BYZ-38-t0r" eventType="touchUpInside" id="qXg-ky-hk4"/>
+                                            <action selector="chooseOption:" destination="BYZ-38-t0r" eventType="touchUpInside" id="SvD-6d-WHc"/>
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Z9D-IC-UhZ">
@@ -57,7 +57,7 @@
                                             <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         </state>
                                         <connections>
-                                            <action selector="selectAnswer:" destination="BYZ-38-t0r" eventType="touchUpInside" id="4et-tD-YJx"/>
+                                            <action selector="chooseOption:" destination="BYZ-38-t0r" eventType="touchUpInside" id="eVr-uf-pnc"/>
                                         </connections>
                                     </button>
                                 </subviews>
@@ -85,11 +85,9 @@
                         <viewLayoutGuide key="safeArea" id="2r6-BY-uUi"/>
                     </view>
                     <connections>
-                        <outlet property="option1" destination="Ada-KC-cmm" id="Oq8-lK-D45"/>
-                        <outlet property="option1Button" destination="Ada-KC-cmm" id="kFJ-WN-Cog"/>
-                        <outlet property="option2" destination="Z9D-IC-UhZ" id="aOs-t5-x2y"/>
-                        <outlet property="option2Button" destination="Z9D-IC-UhZ" id="DUR-Xs-qTY"/>
-                        <outlet property="storyLabel" destination="WfW-dm-m4E" id="yPy-kl-yPo"/>
+                        <outlet property="option1Button" destination="Ada-KC-cmm" id="oni-xG-Njy"/>
+                        <outlet property="option2Button" destination="Z9D-IC-UhZ" id="EFB-Q8-ANa"/>
+                        <outlet property="storyText" destination="WfW-dm-m4E" id="eAj-Sw-Dbc"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
