@@ -17,6 +17,10 @@ class ViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        option1Button?.titleLabel!.numberOfLines = 0;
+        option2Button?.titleLabel!.numberOfLines = 0;
+
         updateUI()
     }
     
