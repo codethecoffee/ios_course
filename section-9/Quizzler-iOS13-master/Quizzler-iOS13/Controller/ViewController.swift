@@ -1,20 +1,12 @@
-//
-//  ViewController.swift
-//  Quizzler-iOS13
-//
-//  Created by Angela Yu on 12/07/2019.
-//  Copyright © 2019 The App Brewery. All rights reserved.
-//
-
 import UIKit
 
 class ViewController: UIViewController {
-    
     @IBOutlet weak var questionText: UILabel!
-    @IBOutlet weak var trueButton: UIButton!
-    @IBOutlet weak var falseButton: UIButton!
     @IBOutlet weak var progressBar: UIProgressView!
     @IBOutlet weak var scoreLabel: UILabel!
+    @IBOutlet weak var ans1Button: UIButton!
+    @IBOutlet weak var ans2Button: UIButton!
+    @IBOutlet weak var ans3Button: UIButton!
     
     // Struct that handles all of the quiz logic
     var quizBrain = QuizBrain()
@@ -23,6 +15,14 @@ class ViewController: UIViewController {
         super.viewDidLoad()
         questionText.text = quizBrain.getQuestionText()
         scoreLabel.text = "Score: \(quizBrain.getScore())"
+
+        let answers = quizBrain.getAnswers()
+        ans1Button.titleLabel?.text = answers[0]
+        ans2Button.titleLabel?.text = answers[1]
+        ans3Button.titleLabel?.text = answers[2]
+
+
+        
         
     }
     
@@ -48,13 +48,19 @@ class ViewController: UIViewController {
 
     }
     
-    // Function for updating our UI as we go to the next question
+    /**
+     Function that updates the UI before we transition to the next question.
+     */
     @objc func updateUI() {
         questionText.text = quizBrain.getQuestionText()
         progressBar.progress = quizBrain.getProgress()
         scoreLabel.text = "Score: \(quizBrain.getScore())"
-        trueButton.backgroundColor = UIColor.clear
-        falseButton.backgroundColor = UIColor.clear
+        
+        // Remove color styling from all three answer buttons
+        ans1Button.backgroundColor = UIColor.clear
+        ans2Button.backgroundColor = UIColor.clear
+        ans3Button.backgroundColor = UIColor.clear
+
     }
 
 
