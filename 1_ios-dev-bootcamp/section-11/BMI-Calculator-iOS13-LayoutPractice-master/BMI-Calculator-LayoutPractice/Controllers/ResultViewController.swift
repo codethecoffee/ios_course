@@ -11,6 +11,10 @@ import UIKit
 class ResultViewController: UIViewController {
     
     var bmi: Float = 0.0
+    var advice: String = ""
+    var color: UIColor?
+    
+    @IBOutlet weak var backgroundColor: UIImageView!
     @IBOutlet weak var bmiLabel: UILabel!
     @IBOutlet weak var adviceLabel: UILabel!
     
@@ -18,9 +22,14 @@ class ResultViewController: UIViewController {
         super.viewDidLoad()
         
         bmiLabel.text = String(format: "%.1f", bmi)
+        backgroundColor.backgroundColor = color
+        adviceLabel.text = advice
 
     }
     
+    /**
+     Return to the original screen
+     */
     @IBAction func recalculatePressed(_ sender: UIButton) {
         
         // Dismiss the second view upon pressing recalculate

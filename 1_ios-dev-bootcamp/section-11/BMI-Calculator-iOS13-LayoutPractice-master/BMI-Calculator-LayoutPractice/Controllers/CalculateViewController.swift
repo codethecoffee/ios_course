@@ -9,6 +9,9 @@
 import UIKit
 
 class CalculateViewController: UIViewController {
+    
+    var calculatorBrain = CalculatorBrain()
+    
     @IBOutlet weak var heightLabel: UILabel!
     @IBOutlet weak var weightLabel: UILabel!
     
@@ -16,29 +19,25 @@ class CalculateViewController: UIViewController {
     // in calculateBMI function
     @IBOutlet weak var heightSlider: UISlider!
     @IBOutlet weak var weightSlider: UISlider!
-    
-    var bmi: Float = 0.0
-    
+        
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
     }
     
     @IBAction func heightSliderChanged(_ sender: UISlider) {
-        print("Current height: " + String(format: "%.1f", sender.value))
         heightLabel.text = String(format: "%.1f", sender.value)
     }
     
     @IBAction func weightSliderChanged(_ sender: UISlider) {
-        print("Current weight: \(Int(sender.value))")
-        weightLabel.text = String(Int(sender.value))
+        weightLabel.text = String(Int(sender.value)) + "kg"
     }
     @IBAction func calculateBMIVal(_ sender: UIButton) {
         
         let height = heightSlider.value
         let weight = weightSlider.value
-        bmi = weight / pow(height, 2)
-        print(bmi)
+        
+        calculatorBrain.calculateBMI(height: height, weight: weight)
         
         // Sender: The viewController initiating the transition
         self.performSegue(withIdentifier: "goToResult", sender: self)
@@ -59,7 +58,9 @@ class CalculateViewController: UIViewController {
             // The superclass UIViewController does not have it, thus
             // the code will not run if you don't downcast
             let destVC = segue.destination as! ResultViewController
-            destVC.bmi = self.bmi
+            destVC.bmi = calculatorBrain.getBMIValue()
+            destVC.advice = calculatorBrain.getAdvice()
+            destVC.color = calculatorBrain.getColor()
         }
         
         
