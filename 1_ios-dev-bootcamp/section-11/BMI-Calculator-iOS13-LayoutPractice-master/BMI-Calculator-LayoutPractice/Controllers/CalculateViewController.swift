@@ -8,7 +8,7 @@
 
 import UIKit
 
-class ViewController: UIViewController {
+class CalculateViewController: UIViewController {
     @IBOutlet weak var heightLabel: UILabel!
     @IBOutlet weak var weightLabel: UILabel!
     
@@ -34,19 +34,17 @@ class ViewController: UIViewController {
         print("Current weight: \(Int(sender.value))")
         weightLabel.text = String(Int(sender.value))
     }
-    
-    @IBAction func calculateBMI(_ sender: UIButton) {
+    @IBAction func calculateBMIVal(_ sender: UIButton) {
+        
         let height = heightSlider.value
         let weight = weightSlider.value
-        let bmi: Float = weight / pow(height, 2)        
+        let bmi: Float = weight / pow(height, 2)
+        print(bmi)
         
-        // Transition to the second view
-        let secondVC = SecondViewController()
-        secondVC.bmiValue = String(format: "%.1f", bmi)
-        
-        self.present(secondVC, animated: true, completion: nil)
-        
+        // Sender: The viewController initiating the transition
+        self.performSegue(withIdentifier: "goToResult", sender: self)
     }
+
     
 
 }
