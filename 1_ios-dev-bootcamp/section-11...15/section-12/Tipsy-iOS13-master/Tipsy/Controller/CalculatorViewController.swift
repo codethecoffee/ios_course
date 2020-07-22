@@ -17,6 +17,7 @@ class CalculatorViewController: UIViewController {
     @IBOutlet weak var splitNumberLabel: UILabel!
     
     var selectedTip: Float = 0.1
+    var splitNum: Int = 2
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -42,11 +43,14 @@ class CalculatorViewController: UIViewController {
     }
     
     @IBAction func splitValueChanged(_ sender: UIStepper) {
+        splitNumberLabel.text = String(Int(sender.value))
+        self.splitNum = Int(sender.value)
         
     }
     
     @IBAction func calculatePressed(_ sender: UIButton) {
         print("Selected tip: \(self.selectedTip)")
+        print("Split amongst: \(self.splitNum)")
     }
 }
 
