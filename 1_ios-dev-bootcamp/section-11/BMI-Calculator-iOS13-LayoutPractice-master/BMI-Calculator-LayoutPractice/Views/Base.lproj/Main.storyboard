@@ -49,6 +49,9 @@
                                                 </constraints>
                                                 <color key="minimumTrackTintColor" red="0.4549019608" green="0.44705882349999998" blue="0.82352941180000006" alpha="0.51797945209999996" colorSpace="custom" customColorSpace="calibratedRGB"/>
                                                 <color key="thumbTintColor" red="0.4549019608" green="0.44705882349999998" blue="0.82352941180000006" alpha="0.49510380990000002" colorSpace="custom" customColorSpace="sRGB"/>
+                                                <connections>
+                                                    <action selector="heightSliderChanged:" destination="BYZ-38-t0r" eventType="valueChanged" id="xHP-1k-o8C"/>
+                                                </connections>
                                             </slider>
                                         </subviews>
                                     </stackView>
@@ -76,6 +79,9 @@
                                                 <rect key="frame" x="-2" y="28.333333333333371" width="378" height="31"/>
                                                 <color key="minimumTrackTintColor" red="0.4549019608" green="0.44705882349999998" blue="0.82352941180000006" alpha="0.49890303940000003" colorSpace="custom" customColorSpace="calibratedRGB"/>
                                                 <color key="thumbTintColor" red="0.4549019608" green="0.44705882349999998" blue="0.82352941180000006" alpha="0.50481592470000003" colorSpace="custom" customColorSpace="sRGB"/>
+                                                <connections>
+                                                    <action selector="weightSliderChanged:" destination="BYZ-38-t0r" eventType="valueChanged" id="Usm-u4-vUu"/>
+                                                </connections>
                                             </slider>
                                         </subviews>
                                         <constraints>
@@ -128,9 +134,9 @@
                     </view>
                     <connections>
                         <outlet property="heightLabel" destination="onR-F4-ZbV" id="vuD-Qo-RNa"/>
-                        <outlet property="heightSlider" destination="QqB-i1-KxK" id="jYm-bB-gbc"/>
+                        <outlet property="heightSlider" destination="QqB-i1-KxK" id="LD5-gh-All"/>
                         <outlet property="weightLabel" destination="YIh-Wr-wDN" id="DVc-PX-DqL"/>
-                        <outlet property="weightSlider" destination="JIH-Nr-5Rb" id="o7f-Tf-m8d"/>
+                        <outlet property="weightSlider" destination="JIH-Nr-5Rb" id="UoU-sR-XKz"/>
                         <segue destination="kfb-Mg-Tzx" kind="presentation" identifier="goToResult" modalTransitionStyle="crossDissolve" id="7yY-yv-epQ"/>
                     </connections>
                 </viewController>
@@ -191,6 +197,9 @@
                                     </userDefinedRuntimeAttribute>
                                     <userDefinedRuntimeAttribute type="boolean" keyPath="clipsToBounds" value="YES"/>
                                 </userDefinedRuntimeAttributes>
+                                <connections>
+                                    <action selector="recalculatePressed:" destination="kfb-Mg-Tzx" eventType="touchUpInside" id="XPd-pH-Zpf"/>
+                                </connections>
                             </button>
                         </subviews>
                         <color key="backgroundColor" red="0.19980379940000001" green="0.48169642689999997" blue="0.77313679459999995" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -203,6 +212,10 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="uhj-wm-fzz"/>
                     </view>
+                    <connections>
+                        <outlet property="adviceLabel" destination="wL7-Mk-scd" id="hID-Ox-xZM"/>
+                        <outlet property="bmiLabel" destination="hWo-gc-8p7" id="URd-qM-vga"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ELc-Va-I6V" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
