@@ -6,23 +6,15 @@
 //  Copyright © 2020 Suzy Lee. All rights reserved.
 //
 
-/**
- A swift code file showing why we need protocols. Relying on class inheritance can get very messy.
- 
- The premise: We own a flying museum, where we demo flying birds. We, quite reasonably, start off by
- declaring a Bird class. All Birds can lay eggs (if female) and fly. We start creating subclasses for more
- specific kinds of birds, and it works great so far for the Eagle.
- 
- However, now we're going to show penguins as well (don't question it), and now penguins can fly because
- they're inheriting from the class Bird!
- 
- Our flying demos are a huge success so we decide to show demos of flying objects as well. The flyingDemo
- method only takes Bird objects, thus we're forced to define our Plane class as a subclass of Bird. Now,
- because of this, planes can lay eggs! What a mess.
- 
- */
-
 import Foundation
+
+/**
+ Protocol that applies to all objects (both bird and non-bird) that can fly
+ */
+protocol CanFly {
+    // Protocol methods do not any implementation (it throws an error if you add {}
+    func fly()
+}
 
 class Bird {
     var isFemale = true
@@ -33,12 +25,15 @@ class Bird {
         }
     }
     
-    func fly() {
-        print("The bird flaps its wings and lifts off into the sky.")
-    }
+    // Remove fly() method from Bird class, since not all birds can fly (e.g., penguins)
 }
 
-class Eagle: Bird {
+// Birds that can fly will adopt the CanFly protocol.
+// Chain protocols to class after listing the superclass (if one exists)
+class Eagle: Bird, CanFly {
+    func fly() {
+        print("The eagle flaps its wing and lifts off into the sky.")
+    }
     
     func soar() {
         print("The eagle glides in the air. Not all birds can do this.")
@@ -46,42 +41,40 @@ class Eagle: Bird {
     
 }
 
+// Bird does not adopt the CanFly protocol
 class Penguin: Bird {
     func swim() {
         print("The penguin paddles through the waater. Only penguins can do this.")
     }
 }
 
-struct FlyingMuseum {
-    func flyingDemo(flyingObject: Bird) {
-        flyingObject.fly()
-    }
-}
-
-// We want to now show airplanes in the flying demo!
-class Airplane: Bird {
-    override func fly() {
+// Airplane no longer needs to be a class because it isn't a subclass of the Bird class
+// Turn it back into a struct; it's better practice to use structs unless inheritance
+// is strictly necessary
+struct Airplane: CanFly {
+    func fly() {
         print("The airplane uses its engine to lift into the air.")
     }
 }
 
+struct FlyingMuseum {
+    /**
+     A method that takes any object that adheres to the CanFly protocol.
+     You aren't limited to a specific class/struct of objects! You can pass
+     protocols like data types.
+     */
+    func flyingDemo(flyingObject: CanFly) {
+        flyingObject.fly()
+    }
+}
 
 let myEagle = Eagle()
-myEagle.fly()
-myEagle.layEgg()
-myEagle.soar()
-
 let myPenguin = Penguin()
-myPenguin.layEgg()
-myPenguin.swim()
-// We want penguin to be a subtype of Bird, but we don't want it to be able to fly.
-myPenguin.fly()
-
-
 let myPlane = Airplane()
 
 let museum = FlyingMuseum()
+museum.flyingDemo(flyingObject: myPlane)
+museum.flyingDemo(flyingObject: myEagle)
 
-// Because a penguin is a Bird object, you can also pass in a myPenguin object!
-// We're relying TOO MUCH on class inheritance.
-museum.flyingDemo(flyingObject: myPenguin)
+// Line below triggers error "Argument type Penguin does not conform to expected type 'CanFly'"
+// museum.flyingDemo(flyingObject: myPenguin)
