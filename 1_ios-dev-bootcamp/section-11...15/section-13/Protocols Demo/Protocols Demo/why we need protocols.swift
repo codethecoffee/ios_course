@@ -22,66 +22,66 @@
  
  */
 
-import Foundation
-
-class Bird {
-    var isFemale = true
-    
-    func layEgg() {
-        if isFemale {
-            print("The bird makes a new bird!")
-        }
-    }
-    
-    func fly() {
-        print("The bird flaps its wings and lifts off into the sky.")
-    }
-}
-
-class Eagle: Bird {
-    
-    func soar() {
-        print("The eagle glides in the air. Not all birds can do this.")
-    }
-    
-}
-
-class Penguin: Bird {
-    func swim() {
-        print("The penguin paddles through the waater. Only penguins can do this.")
-    }
-}
-
-struct FlyingMuseum {
-    func flyingDemo(flyingObject: Bird) {
-        flyingObject.fly()
-    }
-}
-
-// We want to now show airplanes in the flying demo!
-class Airplane: Bird {
-    override func fly() {
-        print("The airplane uses its engine to lift into the air.")
-    }
-}
-
-
-let myEagle = Eagle()
-myEagle.fly()
-myEagle.layEgg()
-myEagle.soar()
-
-let myPenguin = Penguin()
-myPenguin.layEgg()
-myPenguin.swim()
-// We want penguin to be a subtype of Bird, but we don't want it to be able to fly.
-myPenguin.fly()
-
-
-let myPlane = Airplane()
-
-let museum = FlyingMuseum()
-
-// Because a penguin is a Bird object, you can also pass in a myPenguin object!
-// We're relying TOO MUCH on class inheritance.
-museum.flyingDemo(flyingObject: myPenguin)
+//import Foundation
+//
+//class Bird {
+//    var isFemale = true
+//
+//    func layEgg() {
+//        if isFemale {
+//            print("The bird makes a new bird!")
+//        }
+//    }
+//
+//    func fly() {
+//        print("The bird flaps its wings and lifts off into the sky.")
+//    }
+//}
+//
+//class Eagle: Bird {
+//
+//    func soar() {
+//        print("The eagle glides in the air. Not all birds can do this.")
+//    }
+//
+//}
+//
+//class Penguin: Bird {
+//    func swim() {
+//        print("The penguin paddles through the waater. Only penguins can do this.")
+//    }
+//}
+//
+//struct FlyingMuseum {
+//    func flyingDemo(flyingObject: Bird) {
+//        flyingObject.fly()
+//    }
+//}
+//
+//// We want to now show airplanes in the flying demo!
+//class Airplane: Bird {
+//    override func fly() {
+//        print("The airplane uses its engine to lift into the air.")
+//    }
+//}
+//
+//
+//let myEagle = Eagle()
+//myEagle.fly()
+//myEagle.layEgg()
+//myEagle.soar()
+//
+//let myPenguin = Penguin()
+//myPenguin.layEgg()
+//myPenguin.swim()
+//// We want penguin to be a subtype of Bird, but we don't want it to be able to fly.
+//myPenguin.fly()
+//
+//
+//let myPlane = Airplane()
+//
+//let museum = FlyingMuseum()
+//
+//// Because a penguin is a Bird object, you can also pass in a myPenguin object!
+//// We're relying TOO MUCH on class inheritance.
+//museum.flyingDemo(flyingObject: myPenguin)
