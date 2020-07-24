@@ -18,4 +18,4 @@ Learning the fundamentals of iOS app development so I'm not completely lost when
 - [Using protocols to clean up the flyingMuseum example](https://github.com/codethecoffee/learn-ios/blob/82581a54c031d2d633a2f507332c927a12b2107f/1_ios-dev-bootcamp/section-11...15/section-13/Protocols%20Demo/Protocols%20Demo/main.swift)
 
 ![Delegate design pattern diagram](images/delegate_design_pattern.png?raw=true)
--Delegate Design Pattern
+-[Example of Our Own Protocol and Delegate (Hospital Ex)](https://github.com/codethecoffee/learn-ios/blob/925e8eadc646b6ffd19e035de4776fb379cbac62/1_ios-dev-bootcamp/section-11...15/section-13/Protocols%20and%20Delegates/Protocols%20and%20Delegates/main.swift)
