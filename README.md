@@ -12,10 +12,28 @@ Learning the fundamentals of iOS app development so I'm not completely lost when
 - [ ] Create animated iOS apps using Lottie [Lottie Documentation](https://airbnb.io/lottie/#/ios)
 - [ ] Create an app using Texture. [Texture Documentation](https://texturegroup.org/docs/resources.html)
 
-## Notable References
+## General iOS Dev Notes
+### Networking & APIs & JSON
+#### The General Networking Process
+1. Create a URL
+2. Create a URLSession
+3. Give URLSession a task.
+4. Start the task to trigger the entire networking process
+
+### Security: App Transport Security Error
+You will get an "App Transport Security" error, which will block your HTTP (http://) resource load. This is because a third party 
+intercepting the API call can see everything, including sensitive information such as your API key! You must make it an (https://) 
+connection in order to access the information through a secure connection.
+
+
+## Swift Specific Notes
 ### Swift Protocols & Delegates
 - [Why relying on class inheritance can get messy.](https://github.com/codethecoffee/learn-ios/blob/9f03ac9e9e6ce1262b44c4075801f44275fb5335/1_ios-dev-bootcamp/section-11...15/section-13/Protocols%20Demo/Protocols%20Demo/why%20we%20need%20protocols.swift)
 - [Using protocols to clean up the flyingMuseum example](https://github.com/codethecoffee/learn-ios/blob/82581a54c031d2d633a2f507332c927a12b2107f/1_ios-dev-bootcamp/section-11...15/section-13/Protocols%20Demo/Protocols%20Demo/main.swift)
 
 ![Delegate design pattern diagram](images/delegate_design_pattern.png?raw=true)
--[Example of Our Own Protocol and Delegate (Hospital Ex)](https://github.com/codethecoffee/learn-ios/blob/925e8eadc646b6ffd19e035de4776fb379cbac62/1_ios-dev-bootcamp/section-11...15/section-13/Protocols%20and%20Delegates/Protocols%20and%20Delegates/main.swift)
+- [Example of Our Own Protocol and Delegate (Hospital Ex)](https://github.com/codethecoffee/learn-ios/blob/925e8eadc646b6ffd19e035de4776fb379cbac62/1_ios-dev-bootcamp/section-11...15/section-13/Protocols%20and%20Delegates/Protocols%20and%20Delegates/main.swift)
+
+### Swift Closures (a.k.a. Anonymous Functions)
+Unnamed blocks of functionality (also called anonymous functions) that you can pass around. Swift's equivalent of [Objective-C blocks](https://www.tutorialspoint.com/objective_c/objective_c_blocks.htm)
+- [Examples of using Closures](https://github.com/codethecoffee/learn-ios/blob/c0b17c1bbc1fb70335da028348b032098b53df75/1_ios-dev-bootcamp/section-11...15/section-13/Closures.playground/Contents.swift)
