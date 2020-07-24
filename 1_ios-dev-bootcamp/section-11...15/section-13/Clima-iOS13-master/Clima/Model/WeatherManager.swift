@@ -40,6 +40,7 @@ struct WeatherManager {
                     // Data objects aren't as printable as strings; need to convert
                     let dataString = String(data: safeData, encoding: .utf8)
                     print(dataString!)
+                    self.parseJSON(weatherData: safeData)
                 }
             }
             
@@ -66,5 +67,18 @@ struct WeatherManager {
     //
     //    }
     
+    func parseJSON(weatherData: Data) {
+        // An object that decodes JSON
+        let decoder = JSONDecoder()
+        
+        do {
+            let decodedData = try decoder.decode(WeatherData.self, from: weatherData)
+            print("Temperature: \(decodedData.main.temp)")
+            print("Weather: \(decodedData.weather[0].description)")
+            
+        } catch {
+            print(error)
+        }
+    }
     
 }
