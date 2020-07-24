@@ -1,6 +1,8 @@
 # Learn iOS Development
 Learning the fundamentals of iOS app development so I'm not completely lost when I start working at Google
 
+
+## Checklist of Tasks
 - [x] Learn Swift syntax. [Codecademy Track](https://www.codecademy.com/learn/learn-swift)
 - [ ] IN PROGRESS. Get used to developing iOS apps and using UIKit. [Swift iOS Dev Course](https://www.udemy.com/course/ios-13-app-development-bootcamp)
 - [ ] Be able to code identical Swift apps in Objective C. [Swift iOS Dev Course](https://www.udemy.com/course/ios-13-app-development-bootcamp)
@@ -9,3 +11,7 @@ Learning the fundamentals of iOS app development so I'm not completely lost when
 - [ ] Get used to using YogaKit [YogaKit Tutorial](https://www.raywenderlich.com/530-yoga-tutorial-using-a-cross-platform-layout-engine)
 - [ ] Create animated iOS apps using Lottie [Lottie Documentation](https://airbnb.io/lottie/#/ios)
 - [ ] Create an app using Texture. [Texture Documentation](https://texturegroup.org/docs/resources.html)
+
+## Notable References
+### Swift Protocols
+- [Why relying on class inheritance can get messy.](https://github.com/codethecoffee/learn-ios/blob/9f03ac9e9e6ce1262b44c4075801f44275fb5335/1_ios-dev-bootcamp/section-11...15/section-13/Protocols%20Demo/Protocols%20Demo/why%20we%20need%20protocols.swift)
