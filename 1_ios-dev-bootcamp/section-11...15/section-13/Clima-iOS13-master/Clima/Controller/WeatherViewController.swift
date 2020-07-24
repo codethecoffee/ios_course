@@ -16,6 +16,8 @@ class WeatherViewController: UIViewController, UITextFieldDelegate {
     @IBOutlet weak var cityLabel: UILabel!
     @IBOutlet weak var searchTextField: UITextField!
     
+    var weatherManager = WeatherManager()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -65,6 +67,10 @@ class WeatherViewController: UIViewController, UITextFieldDelegate {
      Function triggered when user is done editing a UI Text field
      */
     func textFieldDidEndEditing(_ textField: UITextField) {
+        // Only fetch weather if we have a valid string (unwrap Optional)
+        if let city = searchTextField.text {
+            weatherManager.fetchWeather(cityName: city)
+        }
         
         // This clears the search bar once you search
         searchTextField.text = ""
