@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import CoreLocation
 
 class WeatherViewController: UIViewController {
     @IBOutlet weak var conditionImageView: UIImageView!
@@ -16,15 +17,25 @@ class WeatherViewController: UIViewController {
     @IBOutlet weak var conditionDescription: UILabel!
     
     var weatherManager = WeatherManager()
+    let locationManager = CLLocationManager()
     
     // Remember to set the current view controller as the delegate in viewDidLoad()
     // Forgetting to do this is a common error
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        // The location manager reports back to WeatherViewController
+        locationManager.delegate = self
+        
+        // Shows a pop-up that asks the user for permission
+        locationManager.requestWhenInUseAuthorization()
+        
+        // Request once for the location.
+        // If you need constant updates on location, use startUpdatingLocation() instead
+        locationManager.requestLocation()
+        
         // The text field reports back to WeatherViewController
         searchTextField.delegate = self
-        
         // The weather manager reports back to WeatherViewController
         weatherManager.delegate = self
     }
@@ -106,3 +117,19 @@ extension WeatherViewController: WeatherManagerDelegate {
     }
 }
 
+// MARK: - CLLocationManagerDelegate
+
+extension WeatherViewController: CLLocationManagerDelegate {
+    func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
+        // TIP: The last location in [CLLocation] will be the most updated/accurate one
+        if let location = locations.last {
+            let lat = location.coordinate.latitude
+            let long = location.coordinate.longitude
+            print("Lat & Long: (\(lat), \(long))")
+        }
+    }
+    
+    func locationManager(_ manager: CLLocationManager, didFailWithError error: Error) {
+        print("Failed to find user's location: \(error)")
+    }
+}
