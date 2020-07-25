@@ -23,6 +23,7 @@ Learning the fundamentals of iOS app development so I'm not completely lost when
 |:-------:|:------------:|
 
 ## Making an HTTP Request
+![Making HTTP Request to Open Weather](images/http_request_ex.png?raw=true)
 1. Create a URL
 2. Create a URLSession. It's standard practice to pass in [closures](#foo) for URLSession completion handlers.
 3. Give URLSession a task.
