@@ -40,7 +40,7 @@ struct WeatherManager {
     }
     
     /**
-     Carry out the actual networking process.
+     Carry out the HTTP Request
      */
     func performRequest(with urlString: String) {
         //1. Create a URL
@@ -50,7 +50,7 @@ struct WeatherManager {
             
             //3. Give URLSession a task.
             
-            // There are multiple different kinds of dataTask methods.
+            // There are multiple different versions of the dataTask method
             // This one retrieves the contents from the url, and then fires a completionHandler
             // after successfully fetching said data.
             let task = session.dataTask(with: url) { (data, response, error) in
