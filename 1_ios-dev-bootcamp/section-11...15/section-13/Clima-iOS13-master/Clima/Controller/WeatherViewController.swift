@@ -8,7 +8,7 @@
 
 import UIKit
 
-class WeatherViewController: UIViewController, UITextFieldDelegate, WeatherManagerDelegate {
+class WeatherViewController: UIViewController {
     @IBOutlet weak var conditionImageView: UIImageView!
     @IBOutlet weak var temperatureLabel: UILabel!
     @IBOutlet weak var cityLabel: UILabel!
@@ -29,7 +29,11 @@ class WeatherViewController: UIViewController, UITextFieldDelegate, WeatherManag
         weatherManager.delegate = self
     }
     
-    
+}
+
+// MARK: - UITextFieldDelegate
+
+extension WeatherViewController: UITextFieldDelegate {
     @IBAction func searchPressed(_ sender: UIButton) {
         print(searchTextField.text ?? "No city entered")
         
@@ -79,7 +83,10 @@ class WeatherViewController: UIViewController, UITextFieldDelegate, WeatherManag
         // This clears the search bar once you search
         searchTextField.text = ""
     }
-    
+}
+
+// MARK: - WeatherManagerDelegate
+extension WeatherViewController: WeatherManagerDelegate {
     // It's common practice to pass in the identity of the object that calls the delegate
     // method into a delegate method. In our case, this would be the weatherManager.
     
@@ -97,6 +104,5 @@ class WeatherViewController: UIViewController, UITextFieldDelegate, WeatherManag
     func didFailWithError(error: Error) {
         print(error)
     }
-    
 }
 
