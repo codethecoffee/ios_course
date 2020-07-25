@@ -13,7 +13,7 @@ struct WeatherModel {
     let conditionId: Int
     let cityName: String
     let temperature: Double
-    
+    let condDescription: String
     
     // COMPUTED properties
     // Based on weather condition code, calculate name of SF icon to display

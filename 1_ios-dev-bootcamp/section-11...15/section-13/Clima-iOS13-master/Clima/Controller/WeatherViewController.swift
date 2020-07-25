@@ -13,6 +13,7 @@ class WeatherViewController: UIViewController, UITextFieldDelegate, WeatherManag
     @IBOutlet weak var temperatureLabel: UILabel!
     @IBOutlet weak var cityLabel: UILabel!
     @IBOutlet weak var searchTextField: UITextField!
+    @IBOutlet weak var conditionDescription: UILabel!
     
     var weatherManager = WeatherManager()
     
@@ -83,7 +84,14 @@ class WeatherViewController: UIViewController, UITextFieldDelegate, WeatherManag
     // method into a delegate method. In our case, this would be the weatherManager.
     
     func didUpdateWeather(_ weatherManager: WeatherManager, weather: WeatherModel) {
-        print(weather)
+        // UI updates that depend on completion handlers (async requests)
+        // must be wrapped with Dispatch Queue
+        DispatchQueue.main.async {
+            self.temperatureLabel.text = weather.temperatureString
+            self.conditionImageView.image = UIImage(systemName: weather.conditionName)
+            self.cityLabel.text = weather.cityName
+            self.conditionDescription.text = weather.condDescription
+        }
     }
     
     func didFailWithError(error: Error) {
