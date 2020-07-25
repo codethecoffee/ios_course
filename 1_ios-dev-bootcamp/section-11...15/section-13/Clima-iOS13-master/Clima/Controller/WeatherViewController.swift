@@ -16,6 +16,7 @@ class WeatherViewController: UIViewController {
     @IBOutlet weak var searchTextField: UITextField!
     @IBOutlet weak var conditionDescription: UILabel!
     
+    
     var weatherManager = WeatherManager()
     let locationManager = CLLocationManager()
     
@@ -23,7 +24,10 @@ class WeatherViewController: UIViewController {
     // Forgetting to do this is a common error
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+        // The text field reports back to WeatherViewController
+        searchTextField.delegate = self
+        // The weather manager reports back to WeatherViewController
+        weatherManager.delegate = self
         // The location manager reports back to WeatherViewController
         locationManager.delegate = self
         
@@ -34,10 +38,16 @@ class WeatherViewController: UIViewController {
         // If you need constant updates on location, use startUpdatingLocation() instead
         locationManager.requestLocation()
         
-        // The text field reports back to WeatherViewController
-        searchTextField.delegate = self
-        // The weather manager reports back to WeatherViewController
-        weatherManager.delegate = self
+    }
+    
+    @IBAction func locationPressed(_ sender: UIButton) {
+        // requestLocation will only be executed if there has been a change
+        // in the user's location, or if the location manager was deactivated
+        // and had to be reactivated by this call
+        
+        // TLDR: without the line `locationManager.stopUpdatingLocation()`
+        // in locationManager, this line of code would not work
+        locationManager.requestLocation()
     }
     
 }
@@ -115,6 +125,7 @@ extension WeatherViewController: WeatherManagerDelegate {
     func didFailWithError(error: Error) {
         print(error)
     }
+    
 }
 
 // MARK: - CLLocationManagerDelegate
@@ -123,9 +134,11 @@ extension WeatherViewController: CLLocationManagerDelegate {
     func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
         // TIP: The last location in [CLLocation] will be the most updated/accurate one
         if let location = locations.last {
+            locationManager.stopUpdatingLocation()
+            
             let lat = location.coordinate.latitude
-            let long = location.coordinate.longitude
-            print("Lat & Long: (\(lat), \(long))")
+            let long = location.coordinate.longitude            
+            weatherManager.fetchWeather(latitude: lat, longitude: long)
         }
     }
     

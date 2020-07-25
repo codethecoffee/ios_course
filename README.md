@@ -22,7 +22,7 @@ Learning the fundamentals of iOS app development so I'm not completely lost when
 | Command | Functionality|
 |:-------:|:------------:|
 
-## The General Networking Process
+## Making an HTTP Request
 1. Create a URL
 2. Create a URLSession. It's standard practice to pass in [closures](#foo) for URLSession completion handlers.
 3. Give URLSession a task.

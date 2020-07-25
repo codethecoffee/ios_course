@@ -20,8 +20,22 @@ struct WeatherManager {
     
     var delegate: WeatherManagerDelegate?
     
+    /**
+     Fetch the current weather given a city name.
+     - parameter cityName: The city  the user types in the search bar of the weather app.
+     */
     func fetchWeather(cityName: String) {
         let urlString = "\(weatherURL)&q=\(cityName)"
+        performRequest(with: urlString)
+    }
+    
+    /**
+     Fetch the current weather given the geographic coordinates of a location.
+     - parameter latitude: Latitude of the device's current location.
+     - parameter longitude: Longitude of the device's current location.
+     */
+    func fetchWeather(latitude: Double, longitude: Double) {
+        let urlString = "\(weatherURL)&lat=\(latitude)&lon=\(longitude)"
         performRequest(with: urlString)
     }
     
