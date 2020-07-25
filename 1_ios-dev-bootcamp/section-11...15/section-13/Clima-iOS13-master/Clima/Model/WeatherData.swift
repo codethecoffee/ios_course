@@ -13,18 +13,18 @@ import Foundation
 
 // Decodable Protocol: A type that can decode itself from an external representation (e.g., JSON)
 
-struct WeatherData: Decodable {
+struct WeatherData: Codable {
     let name: String
     let main: Main
     let weather: [Weather]
     
 }
 
-struct Main: Decodable {
+struct Main: Codable {
     let temp: Double
 }
 
-struct Weather: Decodable {
+struct Weather: Codable {
     let id: Int // Weather condition code
     let description: String
 }

@@ -8,18 +8,27 @@
 
 import Foundation
 
+
+// By convention, we declare the protocol in the SAME FILE as the struct/class that will use it
+protocol WeatherManagerDelegate {
+    func didUpdateWeather(_ weatherManager: WeatherManager, weather: WeatherModel)
+    func didFailWithError(error: Error)
+}
+
 struct WeatherManager {
     let weatherURL = "https://api.openweathermap.org/data/2.5/weather?appid=822ab112f2a3d357a27c9c0ea578659f&units=metric"
     
+    var delegate: WeatherManagerDelegate?
+    
     func fetchWeather(cityName: String) {
         let urlString = "\(weatherURL)&q=\(cityName)"
-        performRequest(urlString: urlString)
+        performRequest(with: urlString)
     }
     
     /**
      Carry out the actual networking process.
      */
-    func performRequest(urlString: String) {
+    func performRequest(with urlString: String) {
         //1. Create a URL
         if let url = URL(string: urlString) {
             //2. Create a URLSession
@@ -32,14 +41,15 @@ struct WeatherManager {
             // after successfully fetching said data.
             let task = session.dataTask(with: url) { (data, response, error) in
                 if error != nil {
-                    print(error!)
+                    self.delegate?.didFailWithError(error: error!)
                     return
                 }
                 
                 if let safeData = data {
-                    // Data objects aren't as printable as strings; need to convert
-                    let dataString = String(data: safeData, encoding: .utf8)
-                    self.parseJSON(weatherData: safeData)
+                    if let weather = self.parseJSON(safeData) {
+                        // Tell WeatherViewController delegate that we got weather info!
+                        self.delegate?.didUpdateWeather(self, weather: weather)
+                    }
                 }
             }
             
@@ -48,25 +58,7 @@ struct WeatherManager {
         }
     }
     
-    
-    // Note: It's better programming practice to pass in a closure as the completionHandler instead.
-    // That's why I commented this out.
-    //    func handle(data: Data?, response: URLResponse?, error: Error?) {
-    //        // If there's an error, print it and exit out of the function
-    //        if error != nil {
-    //            print(error!)
-    //            return
-    //        }
-    //
-    //        if let safeData = data {
-    //            // Data objects aren't as printable as strings; need to convert
-    //            let dataString = String(data: safeData, encoding: .utf8)
-    //            print(dataString!)
-    //        }
-    //
-    //    }
-    
-    func parseJSON(weatherData: Data) {
+    func parseJSON(_ weatherData: Data) -> WeatherModel? {
         // An object that decodes JSON
         let decoder = JSONDecoder()
         
@@ -77,12 +69,10 @@ struct WeatherManager {
             let name = decodedData.name
             
             let weather = WeatherModel(conditionId: id, cityName: name, temperature: temp)
-            
-            let iconName = weather.conditionName
-            print(weather.temperatureString)
-            print(iconName)
+            return weather
         } catch {
-            print(error)
+            self.delegate?.didFailWithError(error: error)
+            return nil
         }
     }
     

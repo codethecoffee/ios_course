@@ -8,9 +8,7 @@
 
 import UIKit
 
-class WeatherViewController: UIViewController, UITextFieldDelegate {
-
-    // Can use icons from SF Symbols for iOS13+
+class WeatherViewController: UIViewController, UITextFieldDelegate, WeatherManagerDelegate {
     @IBOutlet weak var conditionImageView: UIImageView!
     @IBOutlet weak var temperatureLabel: UILabel!
     @IBOutlet weak var cityLabel: UILabel!
@@ -18,11 +16,16 @@ class WeatherViewController: UIViewController, UITextFieldDelegate {
     
     var weatherManager = WeatherManager()
     
+    // Remember to set the current view controller as the delegate in viewDidLoad()
+    // Forgetting to do this is a common error
     override func viewDidLoad() {
         super.viewDidLoad()
         
         // The text field reports back to WeatherViewController
         searchTextField.delegate = self
+        
+        // The weather manager reports back to WeatherViewController
+        weatherManager.delegate = self
     }
     
     
@@ -42,7 +45,7 @@ class WeatherViewController: UIViewController, UITextFieldDelegate {
         
         // Dismisses the keyboard upon pressing return
         searchTextField.endEditing(true)
-
+        
         // Return true if the keyboard should indeed return upon press
         return true
     }
@@ -76,8 +79,16 @@ class WeatherViewController: UIViewController, UITextFieldDelegate {
         searchTextField.text = ""
     }
     
-
+    // It's common practice to pass in the identity of the object that calls the delegate
+    // method into a delegate method. In our case, this would be the weatherManager.
     
-
+    func didUpdateWeather(_ weatherManager: WeatherManager, weather: WeatherModel) {
+        print(weather)
+    }
+    
+    func didFailWithError(error: Error) {
+        print(error)
+    }
+    
 }
 
