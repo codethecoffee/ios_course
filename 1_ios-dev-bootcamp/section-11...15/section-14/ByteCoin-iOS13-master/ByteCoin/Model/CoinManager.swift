@@ -22,7 +22,6 @@ struct CoinManager {
      */
     func getCoinPrice(for currency: String) {
         let url = "\(baseURL)/\(currency)?apikey=\(apiKey)"
-        print("API url: \(url)")
         performRequest(with: url)
     }
     
@@ -35,7 +34,6 @@ struct CoinManager {
             // 2. Create a URLSession (a.k.a. connection to the URL)
             // Most of the time, you just have to leave it as the default configuration.
             let session = URLSession(configuration: .default)
-            
             // 3. Assign a task to this session
             let task = session.dataTask(with: url) { (data, response, error) in
                 if error != nil {
@@ -44,12 +42,28 @@ struct CoinManager {
                 }
                 
                 if let safeData = data {
-                    print(String(data: safeData, encoding: .utf8))
+                    let exchangeRate = self.parseJSON(safeData)
+                    print(exchangeRate)
                 }
             }
             
             // 4. Start the task
             task.resume()
+        }
+    }
+    
+    /**
+     Parse JSON data using the CoinData struct.
+     - parameter data: Data object retrieved from HTTP request
+     */
+    func parseJSON(_ data: Data) -> Double? {
+        let decoder = JSONDecoder()
+        do {
+            let decodedData = try decoder.decode(CoinData.self, from: data)
+            return decodedData.rate
+        } catch {
+            print(error)
+            return nil
         }
     }
 }
