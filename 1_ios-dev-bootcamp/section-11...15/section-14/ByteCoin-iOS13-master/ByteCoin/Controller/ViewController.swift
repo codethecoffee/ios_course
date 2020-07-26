@@ -8,7 +8,7 @@
 
 import UIKit
 
-class ViewController: UIViewController, UIPickerViewDataSource, UIPickerViewDelegate {
+class ViewController: UIViewController {
     @IBOutlet weak var bitcoinLabel: UILabel!
     @IBOutlet weak var currencyLabel: UILabel!
     @IBOutlet weak var currencyPicker: UIPickerView!
@@ -26,6 +26,11 @@ class ViewController: UIViewController, UIPickerViewDataSource, UIPickerViewDele
         coinManager.delegate = self
     }
     
+    
+}
+
+// MARK: - UIPickerViewDataSource & UIPickerViewDelegate
+extension ViewController: UIPickerViewDataSource, UIPickerViewDelegate {
     /**
      Determines the number of columns to be in the UIPickerView
      */
@@ -57,8 +62,8 @@ class ViewController: UIViewController, UIPickerViewDataSource, UIPickerViewDele
         
     }
     
-    
 }
+
 
 // MARK: - CoinManagerDelegate
 extension ViewController: CoinManagerDelegate {
