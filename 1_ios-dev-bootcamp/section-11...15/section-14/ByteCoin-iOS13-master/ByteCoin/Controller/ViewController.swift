@@ -9,12 +9,11 @@
 import UIKit
 
 class ViewController: UIViewController, UIPickerViewDataSource, UIPickerViewDelegate {
-    
     @IBOutlet weak var bitcoinLabel: UILabel!
     @IBOutlet weak var currencyLabel: UILabel!
     @IBOutlet weak var currencyPicker: UIPickerView!
     
-    let coinManager = CoinManager()
+    var coinManager = CoinManager()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -22,6 +21,9 @@ class ViewController: UIViewController, UIPickerViewDataSource, UIPickerViewDele
         currencyPicker.dataSource = self
         // UIPickerView will communicate with ViewController
         currencyPicker.delegate = self
+        
+        // Coin Manager can now communicate with ViewController
+        coinManager.delegate = self
     }
     
     /**
@@ -54,6 +56,30 @@ class ViewController: UIViewController, UIPickerViewDataSource, UIPickerViewDele
         coinManager.getCoinPrice(for: selectedCurr)
         
     }
-
+    
+    
 }
 
+// MARK: - CoinManagerDelegate
+extension ViewController: CoinManagerDelegate {
+    /**
+     Updates the UI with the appropriate exchange rate once the user selects a currency.
+     
+     - parameter exchangeRate: Exchange rate selected on UIPicker
+     */
+    func selectCurrency(_ exchangeRate: Double, selectedCurr: String) {
+        // Make sure UI updates are done asynchronously (after we can result from API call)
+        DispatchQueue.main.async {
+            self.bitcoinLabel.text = String(format:"%.0f", exchangeRate)
+            self.currencyLabel.text = selectedCurr
+        }
+    }
+    
+    /**
+     Something went wrong in selecting the currency and making the API call.
+     */
+    func didFailWithError(_ error: Error) {
+        print(error)
+    }
+    
+}

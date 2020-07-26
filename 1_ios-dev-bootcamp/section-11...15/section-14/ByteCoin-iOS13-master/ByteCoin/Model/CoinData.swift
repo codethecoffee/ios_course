@@ -14,5 +14,5 @@ import Foundation
 struct CoinData: Codable {
     let asset_id_base: String // BTC
     let asset_id_quote: String // User's selected currency
-    let rate: Double // Exchange rate to selected currency
+    var rate: Double // Exchange rate to selected currency
 }
