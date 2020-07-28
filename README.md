@@ -85,6 +85,47 @@ If you must update the UI based on the results from an asynchronous request that
 - [Setting up iOS App with Firebase Tutorial](https://www.udemy.com/course/ios-13-app-development-bootcamp/learn/lecture/16813300#overview)
 - [List of Firebase Pods](https://firebase.google.com/docs/ios/setup#available-pods): There are a TON of Pods to download. You definitely don't need all of them. Add `pod 'Firebase/Auth'` if you want login functionality and `pod "Firebase/Firestore` for (basic) database functionality.
 
+# Objective-C Specific
+## Header (`.h`) and Implementation (`.m`) Files
+- [Video lecture](https://www.udemy.com/course/objectivec/learn/lecture/4410912#overview)
+- Unlike Swift, Objective-C has header files (`ViewController.h`) and implementation files (`ViewController.m`). Typically, you will put your definition of a class in the .h file and the implementation of it in the .m file.
+- When declaring a new Objective-C class, create a new CocoaTouch file in order to automatically have the .h and .m file pairing generated for you.
+- Unlike Swift, where the files just automatically "know" all of your class declarations, you must manually import the header files into the `.m` files you want to use them in. e.g., `#import "MyNewStruct.h"`
+
+## Print Statements [`NSLog`]
+- `NSLog` is the equivalent of a print statement in Objective-C. It takes a string formatter (string interpolation) as the first parameter, and then the variables after that
+
+## Strings
+- Create a new string with string interpolation using `stringWithFormat` 
+- Append two strings using `stringByAppendingString`
+- String comparisons. Do NOT use equal signs; it's not a safe way to do it. ALWAYS use `[string1 isEqualToString:string2]`. TIP: Add a `!` in front of that if you want to check whether the strings are NOT equal.
+- To check for equality while ignoring cases, use `[string1 caseInsensitiveCompare:string2] == NSOrderedSame`. `caseInsensitiveCompare` does not return a boolean (it orders a comparison result object), so make sure to set equality for the specific data result type.
+
+## Numbers
+- Do NOT use native C types! Objective-C is built on top of C, so you can technically use native C types like `int`, `float`, and `double`.
+- You cannot store native C types into an Objective C array! Objective-C only works with OBJECTS. Use the class `NSNumber`. It can store all the number types.
+- If you want to do calculations with those `NSNumber` values, you can access the values and calculate like so: `NS Number *sumNum = [NSNumber numberWithInt: [numInt intValue] + [numInt2 intValue]]`
+- You can even get the string representation of an NSNumber using `myInt.stringValue` property.
+
+## Static
+- In developer documentation, if the method name is preceded by a `+` it's a static method
+
+## Getters and Setters
+- [Obj-C getter and setter crash course lecture notes]()
+- Objective-C automatically creates getters and setters for all public properties you define in `.h` (preceded by `@property`). `_propertyName = @"Suzy Lee"`, `[self setPropertyName: @"Suzy Lee"]`, and `self.propertyName = @"Suzy Lee"` all do the same thing - they set the value of `propertyName` to the string literal `@"Suzy Lee"`.
+- You can customize the default getters and setters in `.m` (make sure you use the one Objective C created for you). Overwrite the setter like so: `- (propertyType*) propertyName { code }`
+
+## Classes [`@property`]
+- Declare an instance of an Objective-C class with the notation: `Human *currHuman = [[Human alloc]init]`
+
+## Pointers
+- Pointers hold the memory address where a data object is held. We'll focus on the more practical aspects of Obj-C pointers in the context of iOS development.
+- Classes (e.g., NSStrings, NSNumber, custom classes) must use pointers. An object property is declared as `@property (nonatomic, strong) NSString *name;` with an asterisk. When using said property, you must add the `alloc` keyword. `self.name = [[NSString alloc]init]` to DYNAMICALLY allocate enough space for that particular object.
+- Native types (e.g., NSInteger, int) do not need pointers. `@property (nonatomic) int age;` You only need to STATICALLY allocate space for it.
+
+## Strings
+
+
 # Swift Specific 
 ## Miscellaneous Syntax
 - [Stored properties v.s. Computed properties](https://github.com/codethecoffee/learn-ios/blob/583e254297d4469977a5dc1def56d05d44582fb1/1_ios-dev-bootcamp/section-11...15/section-13/Clima-iOS13-master/Clima/Model/WeatherModel.swift)
