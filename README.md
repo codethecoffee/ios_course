@@ -4,9 +4,9 @@ Learning the fundamentals of iOS app development so I'm not completely lost when
 
 # Learn iOS Development
 - [x] Learn Swift syntax. [Codecademy Track](https://www.codecademy.com/learn/learn-swift)
-- [ ] IN PROGRESS. Get used to developing iOS apps and using UIKit. [Swift iOS Dev Course](https://www.udemy.com/course/ios-13-app-development-bootcamp)
+- [x ] Get used to developing iOS apps and using UIKit. [Swift iOS Dev Course](https://www.udemy.com/course/ios-13-app-development-bootcamp)
+- [ ] IN PROGRESS Complete a separate Objective C iOS dev course [Objective-C Crash Course for Swift Developers](https://www.udemy.com/course/objectivec/?utm_source=adwords&utm_medium=udemyads&utm_campaign=LongTail_la.EN_cc.ROW&utm_content=deal4584&utm_term=_._ag_77879424134_._ad_437497333833_._kw__._de_c_._dm__._pl__._ti_dsa-1007766171312_._li_1009874_._pd__._&matchtype=b&gclid=EAIaIQobChMIjtHPsvTf6gIVSNiWCh1yTgRjEAAYAiAAEgKvp_D_BwE)
 - [ ] Be able to code identical Swift apps in Objective C. [Swift iOS Dev Course](https://www.udemy.com/course/ios-13-app-development-bootcamp)
-- [ ] Complete a separate Objective C iOS dev course [Objective-C Crash Course for Swift Developers](https://www.udemy.com/course/objectivec/?utm_source=adwords&utm_medium=udemyads&utm_campaign=LongTail_la.EN_cc.ROW&utm_content=deal4584&utm_term=_._ag_77879424134_._ad_437497333833_._kw__._de_c_._dm__._pl__._ti_dsa-1007766171312_._li_1009874_._pd__._&matchtype=b&gclid=EAIaIQobChMIjtHPsvTf6gIVSNiWCh1yTgRjEAAYAiAAEgKvp_D_BwE)
 - [ ] IN PROGRESS. Get re-acquainted with C/C++ [Codecademy Track](https://www.codecademy.com/learn/learn-c-plus-plus)
 - [ ] Get used to using YogaKit [YogaKit Tutorial](https://www.raywenderlich.com/530-yoga-tutorial-using-a-cross-platform-layout-engine)
 - [ ] Create animated iOS apps using Lottie [Lottie Documentation](https://airbnb.io/lottie/#/ios)
@@ -21,6 +21,9 @@ Learning the fundamentals of iOS app development so I'm not completely lost when
 ## Useful Visual Studio Shortcuts
 | Command | Functionality|
 |:-------:|:------------:|
+
+## Constants
+- It's common practice to store your constants in a `Constants.swift` file in a struct named `k`. [Here's the origin of this programming notation](https://stackoverflow.com/questions/472103/lower-case-k-in-cocoa/472118#472118). TLDR: `k` stands for "constant" in hungarian notation.
 
 ## CocoaPods
 Suzy's TLDR: The `npm` or `yarn` of iOS development. Coded in Ruby.
@@ -40,7 +43,12 @@ Suzy's TLDR: The `npm` or `yarn` of iOS development. Coded in Ruby.
 ## Segues (Transitions between different screens) & Navigation Controller Stacks
 - [Use performSegue to manually trigger a transition between ViewControllers](https://github.com/codethecoffee/learn-ios/blob/59ced450946ddf6e2cccc329affa5b92f6c2738e/1_ios-dev-bootcamp/section-11...15/section-15/Flash-Chat-iOS13-master/Flash%20Chat%20iOS13/Controllers/RegisterViewController.swift)
 - In order to trigger a transition from a button to a screen, you can simply Ctrl click the button and drag it to the destination in the storyboard! No coding required.
+
+## Navigation Controller
 - Initializing a navigation controller stack: Select root storyboard (entry point) => Editor => Embed In => Navigation Controller. All of the downstream navigation controllers will get a top nav bar immediately). If you don't do this, all the segues will be modal pop-ups.
+- [Pop to root controller](https://github.com/codethecoffee/learn-ios/commit/f0500a880119a565dac1c61aad4ad1b4e41300fe): Takes user all the way back to the root View Controller
+-[Hiding the back button from the navbar from specific View Controllers](https://github.com/codethecoffee/learn-ios/commit/29cad36732f33998c281bb17e3a9ebddb3ab173e): TLDR: Add `navigationItem.hidesBackButton = true` inside `viewDidLoad()` function.
+
 
 ## Making an HTTP Request
 ![Making HTTP Request to Open Weather](images/http_request_ex.png?raw=true)
@@ -80,9 +88,11 @@ If you must update the UI based on the results from an asynchronous request that
 # Swift Specific 
 ## Miscellaneous Syntax
 - [Stored properties v.s. Computed properties](https://github.com/codethecoffee/learn-ios/blob/583e254297d4469977a5dc1def56d05d44582fb1/1_ios-dev-bootcamp/section-11...15/section-13/Clima-iOS13-master/Clima/Model/WeatherModel.swift)
+-[Static properties v.s. instance properties (and also static methods!)](https://github.com/codethecoffee/learn-ios/blob/8ad9e7a5458168be4bd46433691d91eaf6684ee6/1_ios-dev-bootcamp/section-11...15/section-15/Static%20Properties.playground/Contents.swift): It's convention to use static properties in a struct as your constants file
 
 ## Optionals
 - [Example of Optional Chaining](https://github.com/codethecoffee/learn-ios/commit/14fb7dbdadc2c9909acaacf85bbe78233d5398b0): Prevents code block from executing unless all of the chained optionals are not nil. In this case, authentication is triggered only if there are valid inputs to the username and password field.
+
 
 ## Swift Protocols & Delegates
 - [Why relying on class inheritance can get messy.](https://github.com/codethecoffee/learn-ios/blob/9f03ac9e9e6ce1262b44c4075801f44275fb5335/1_ios-dev-bootcamp/section-11...15/section-13/Protocols%20Demo/Protocols%20Demo/why%20we%20need%20protocols.swift)
