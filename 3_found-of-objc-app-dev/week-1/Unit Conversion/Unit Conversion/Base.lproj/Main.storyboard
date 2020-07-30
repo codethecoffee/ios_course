@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="15705" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15706"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--View Controller-->
+        <scene sceneID="tne-QT-ifu">
+            <objects>
+                <viewController id="BYZ-38-t0r" customClass="ViewController" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <stackView opaque="NO" contentMode="scaleToFill" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="JfN-bf-DWw">
+                                <rect key="frame" x="131.5" y="223" width="151.5" height="38"/>
+                                <subviews>
+                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="yJX-iD-Xeq">
+                                        <rect key="frame" x="0.0" y="0.0" width="110" height="38"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="110" id="utf-vn-oId"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" type="system" pointSize="25"/>
+                                        <textInputTraits key="textInputTraits"/>
+                                    </textField>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="cm" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ZCC-rZ-o5l">
+                                        <rect key="frame" x="118" y="0.0" width="33.5" height="38"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="25"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                            </stackView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Click Convert for the answer" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="XWv-LW-qVl">
+                                <rect key="frame" x="55" y="516" width="304" height="30"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="25"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="oY8-Ff-iAT">
+                                <rect key="frame" x="50" y="353" width="314" height="32"/>
+                                <segments>
+                                    <segment title="feet"/>
+                                    <segment title="inches"/>
+                                    <segment title="meters"/>
+                                </segments>
+                            </segmentedControl>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="k8t-hC-yu2">
+                                <rect key="frame" x="163.5" y="392" width="87" height="42"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="25"/>
+                                <state key="normal" title="Convert"/>
+                                <connections>
+                                    <action selector="pressConvert:" destination="BYZ-38-t0r" eventType="touchUpInside" id="gUO-40-Lrq"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <constraints>
+                            <constraint firstItem="oY8-Ff-iAT" firstAttribute="top" secondItem="JfN-bf-DWw" secondAttribute="bottom" constant="92" id="9MM-NM-oVg"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="XWv-LW-qVl" secondAttribute="bottom" constant="316" id="9NH-Vv-a4r"/>
+                            <constraint firstItem="k8t-hC-yu2" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="ESU-DI-BYH"/>
+                            <constraint firstItem="oY8-Ff-iAT" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="FhA-yu-YgS"/>
+                            <constraint firstItem="k8t-hC-yu2" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="NtA-Lg-fay"/>
+                            <constraint firstItem="oY8-Ff-iAT" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="50" id="VlQ-JO-V0k"/>
+                            <constraint firstItem="JfN-bf-DWw" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="179" id="VzW-g4-Hkc"/>
+                            <constraint firstItem="XWv-LW-qVl" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="dOC-0A-TXH"/>
+                            <constraint firstItem="oY8-Ff-iAT" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="ghP-xQ-Ohd"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="oY8-Ff-iAT" secondAttribute="trailing" constant="50" id="hYy-Fh-8ov"/>
+                            <constraint firstItem="k8t-hC-yu2" firstAttribute="top" secondItem="oY8-Ff-iAT" secondAttribute="bottom" constant="8" id="inF-ys-Yti"/>
+                            <constraint firstItem="XWv-LW-qVl" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="mM0-cR-Ok5"/>
+                            <constraint firstItem="XWv-LW-qVl" firstAttribute="top" secondItem="k8t-hC-yu2" secondAttribute="bottom" constant="82" id="mhD-rP-9gq"/>
+                            <constraint firstItem="JfN-bf-DWw" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="pH6-BB-Nuq"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
+                    </view>
+                    <connections>
+                        <outlet property="inputField" destination="yJX-iD-Xeq" id="PyI-2H-KXL"/>
+                        <outlet property="outputField" destination="XWv-LW-qVl" id="9rf-xS-DUh"/>
+                        <outlet property="selectedUnit" destination="oY8-Ff-iAT" id="KcB-ao-8O5"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="131.8840579710145" y="137.94642857142856"/>
+        </scene>
+    </scenes>
+</document>
