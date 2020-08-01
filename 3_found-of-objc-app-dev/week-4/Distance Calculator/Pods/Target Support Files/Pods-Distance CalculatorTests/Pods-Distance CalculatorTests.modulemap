@@ -1,0 +1,6 @@
+framework module Pods_Distance_CalculatorTests {
+  umbrella header "Pods-Distance CalculatorTests-umbrella.h"
+
+  export *
+  module * { export * }
+}
