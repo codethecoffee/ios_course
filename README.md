@@ -6,7 +6,8 @@ Learning the fundamentals of iOS app development so I'm not completely lost when
 - [x] Learn Swift syntax. [Codecademy Track](https://www.codecademy.com/learn/learn-swift)
 - [x] Get used to developing iOS apps and using UIKit. [Swift iOS Dev Course](https://www.udemy.com/course/ios-13-app-development-bootcamp)
 - [x] Basic Objective-C Syntax [Udemy: Objective-C Crash Course for Swift Developers](https://www.udemy.com/course/objectivec/?utm_source=adwords&utm_medium=udemyads&utm_campaign=LongTail_la.EN_cc.ROW&utm_content=deal4584&utm_term=_._ag_77879424134_._ad_437497333833_._kw__._de_c_._dm__._pl__._ti_dsa-1007766171312_._li_1009874_._pd__._&matchtype=b&gclid=EAIaIQobChMIjtHPsvTf6gIVSNiWCh1yTgRjEAAYAiAAEgKvp_D_BwE)
-- [ ] IN PROGRESS [iOS Development for Creative Entrepreneurs specialization](https://www.coursera.org/specializations/ios-development). Goal: Get the final certificate! Everything in this specialization is done in Objective-C.
+- [x] [Foundations of Objective-C App Development](https://www.coursera.org/learn/objective-c/home/welcome). Course 1 of [iOS Development for Creative Entrepreneurs specialization](https://www.coursera.org/specializations/ios-development)
+- [ ] IN PROGRESS [Networking and Security in iOS Applications](https://www.coursera.org/learn/security?specialization=ios-development). Course 2 of [iOS Development for Creative Entrepreneurs specialization](https://www.coursera.org/specializations/ios-development) 
 - [ ] IN PROGRESS [Udacity: Objective-C for Swift Developers Course](https://classroom.udacity.com/courses/ud1009)
 - [ ] Be able to code identical Swift apps in Objective C. [Swift iOS Dev Course](https://www.udemy.com/course/ios-13-app-development-bootcamp)
 - [ ] IN PROGRESS. Get re-acquainted with C/C++ [Codecademy Track](https://www.codecademy.com/learn/learn-c-plus-plus)
@@ -88,6 +89,11 @@ If you must update the UI based on the results from an asynchronous request that
 - [List of Firebase Pods](https://firebase.google.com/docs/ios/setup#available-pods): There are a TON of Pods to download. You definitely don't need all of them. Add `pod 'Firebase/Auth'` if you want login functionality and `pod "Firebase/Firestore` for (basic) database functionality.
 
 # Objective-C Specific
+## ARC and Memory Leaks (a.k.a. pointer cycles are gross)
+- [ARC Video Lecture](https://www.coursera.org/learn/objective-c/lecture/Mn4FV/arc-video). TLDR: ARC is unable to handle memory leaks caused by pointer cycles. You'll encounter this when defining blocks as the callback method for Obj-C objects.
+- Memory leaks can lead to apps crashing as the heap memory runs out from the user interacting with the action too many times.
+-[My code example of breaking a pointer cycle](https://github.com/codethecoffee/learn-ios/blob/e188f3fc3cc1dcd576472f0e7367da02e921da1f/3_found-of-objc-app-dev/week-4/Distance%20Calculator/Distance%20Calculator/ViewController.m): Focus on the use of weakSelf and strongSelf. By accessing self through the strongSelf pointer, we can set strongSelf to `nil` at the end of the block so that the ARC knows that it can now free the heap space.
+
 ## Header (`.h`) and Implementation (`.m`) Files
 - [Video lecture](https://www.udemy.com/course/objectivec/learn/lecture/4410912#overview)
 - Unlike Swift, Objective-C has header files (`ViewController.h`) and implementation files (`ViewController.m`). Typically, you will put your definition of a class in the .h file and the implementation of it in the .m file.
