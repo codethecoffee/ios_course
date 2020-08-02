@@ -7,7 +7,7 @@ Learning the fundamentals of iOS app development so I'm not completely lost when
 - [x] Get used to developing iOS apps and using UIKit. [Swift iOS Dev Course](https://www.udemy.com/course/ios-13-app-development-bootcamp)
 - [x] Basic Objective-C Syntax [Udemy: Objective-C Crash Course for Swift Developers](https://www.udemy.com/course/objectivec/?utm_source=adwords&utm_medium=udemyads&utm_campaign=LongTail_la.EN_cc.ROW&utm_content=deal4584&utm_term=_._ag_77879424134_._ad_437497333833_._kw__._de_c_._dm__._pl__._ti_dsa-1007766171312_._li_1009874_._pd__._&matchtype=b&gclid=EAIaIQobChMIjtHPsvTf6gIVSNiWCh1yTgRjEAAYAiAAEgKvp_D_BwE)
 - [x] [Foundations of Objective-C App Development](https://www.coursera.org/learn/objective-c/home/welcome). Course 1 of [iOS Development for Creative Entrepreneurs specialization](https://www.coursera.org/specializations/ios-development)
-- [ ] IN PROGRESS [Networking and Security in iOS Applications](https://www.coursera.org/learn/security?specialization=ios-development). Course 2 of [iOS Development for Creative Entrepreneurs specialization](https://www.coursera.org/specializations/ios-development) 
+- [ ] IN PROGRESS [Best Practices for iOS User Interface Design](https://www.coursera.org/learn/ui/home/welcome). Course 3 of [iOS Development for Creative Entrepreneurs specialization](https://www.coursera.org/specializations/ios-development) 
 - [ ] IN PROGRESS [Udacity: Objective-C for Swift Developers Course](https://classroom.udacity.com/courses/ud1009)
 - [ ] Be able to code identical Swift apps in Objective C. [Swift iOS Dev Course](https://www.udemy.com/course/ios-13-app-development-bootcamp)
 - [ ] IN PROGRESS. Get re-acquainted with C/C++ [Codecademy Track](https://www.codecademy.com/learn/learn-c-plus-plus)
