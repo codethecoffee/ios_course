@@ -92,7 +92,7 @@ If you must update the UI based on the results from an asynchronous request that
 ## ARC and Memory Leaks (a.k.a. pointer cycles are gross)
 - [ARC Video Lecture](https://www.coursera.org/learn/objective-c/lecture/Mn4FV/arc-video). TLDR: ARC is unable to handle memory leaks caused by pointer cycles. You'll encounter this when defining blocks as the callback method for Obj-C objects.
 - Memory leaks can lead to apps crashing as the heap memory runs out from the user interacting with the action too many times.
--[My code example of breaking a pointer cycle](https://github.com/codethecoffee/learn-ios/blob/e188f3fc3cc1dcd576472f0e7367da02e921da1f/3_found-of-objc-app-dev/week-4/Distance%20Calculator/Distance%20Calculator/ViewController.m): Focus on the use of weakSelf and strongSelf. By accessing self through the strongSelf pointer, we can set strongSelf to `nil` at the end of the block so that the ARC knows that it can now free the heap space.
+- [My code example of breaking a pointer cycle](https://github.com/codethecoffee/learn-ios/blob/e188f3fc3cc1dcd576472f0e7367da02e921da1f/3_found-of-objc-app-dev/week-4/Distance%20Calculator/Distance%20Calculator/ViewController.m): Focus on the use of weakSelf and strongSelf. By accessing self through the strongSelf pointer, we can set strongSelf to `nil` at the end of the block so that the ARC knows that it can now free the heap space.
 
 ## Header (`.h`) and Implementation (`.m`) Files
 - [Video lecture](https://www.udemy.com/course/objectivec/learn/lecture/4410912#overview)
