@@ -16,8 +16,34 @@ int main(int argc, const char * argv[]) {
             [coolString appendString:@"Suzy is cool. "];
         }
         
-        [coolString writeToFile:@"/tmp/cool.txt" atomically:YES encoding:NSUTF8StringEncoding error:NULL];
-        NSLog(@"done writing to /tmp/cool/txt");
+        // Declare a pointer to an NSError object, but do not instantiate it.
+        // The NSError instance will only be created if there is, in fact, an error
+        NSError *writingError; // This is the pass-by-reference technique used in C
+        
+        // Pass the NSError pointer by reference to the NSString method
+        // writeToFile returns YES if file writing was successful, NO if not
+        BOOL success = [coolString writeToFile:@"/too/darned/bad.txt" atomically:YES encoding:NSUTF8StringEncoding error: &writingError]; // &: "memory-address-of" operator
+        
+        // Check whether the write was successful. If not, NSLog the error
+        if (success) {
+            NSLog(@"File write was successful!");
+        } else {
+            NSLog(@"Error: %@", [writingError localizedDescription]);
+        }
+        
+        
+        NSError *readError;
+        NSString *newStr = [[NSString alloc] initWithContentsOfFile:@"/etc/resolv.conf" encoding:NSUTF8StringEncoding error:&readError];
+        
+        // If the read was successful, NSLog it. Otherwise, return a user-friendly error message
+        if (!newStr) {
+            NSLog(@"read failed: %@", [readError localizedDescription]);
+        } else {
+            NSLog(@"contents of resolve.conf: %@", newStr);
+        }
+        
+        
+        
     }
     return 0;
 }
