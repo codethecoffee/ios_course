@@ -57,6 +57,7 @@ int main(int argc, const char * argv[]) {
         // Step 1: Initialize an instance of NSNotificationCenter. Typically, you'll just need one
         NSNotificationCenter *notificationCenter = [NSNotificationCenter defaultCenter];
         
+        // OPTION 1: Add an observer using CALLBACKS
         // Step 2: Add an observer to this notification center. Here's a breakdown of the parameters:
         //         name: The notification the observer is listening/waiting for.
         //         addObserver: The object with a method that will be triggered upon receiving the
@@ -69,7 +70,15 @@ int main(int argc, const char * argv[]) {
          name:NSSystemTimeZoneDidChangeNotification
          object:nil];
         
-        
+        // OPTION 2: Add an observer using a BLOCK
+        // Step 2: Add an observer to this notification center.
+        //         Note: The queue parameter is used for concurrency. Don't worry about it for now.
+        [notificationCenter
+         addObserverForName:NSSystemTimeZoneDidChangeNotification
+         object:nil queue:nil
+         usingBlock:^(NSNotification * _Nonnull note) {
+            NSLog(@"***TIME ZONE CHANGED NOTIFICATION WITH BLOCK!");
+        }];
         
         [[NSRunLoop currentRunLoop] run];
     }

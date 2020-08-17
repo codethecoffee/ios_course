@@ -86,7 +86,7 @@
  from the NSNotificationCenter
  */
 - (void)zoneChange:(NSNotification *)note {
-    NSLog(@"THE TIME ZONE HAS CHANGED WOOHOO!!!");
+    NSLog(@"THE TIME ZONE HAS CHANGED WITH CALLBACK!");
 }
 
 @end
