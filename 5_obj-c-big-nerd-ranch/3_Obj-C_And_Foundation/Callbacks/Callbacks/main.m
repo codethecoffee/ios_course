@@ -9,10 +9,19 @@
 #import <Foundation/Foundation.h>
 
 #import "BNRLogger.h"
+#import "BNRObserver.h"
 
 int main(int argc, const char * argv[]) {
     @autoreleasepool {
         BNRLogger *logger = [[BNRLogger alloc] init];
+        
+        /////////////////////////
+        // KEY-VALUE OBSERVING //
+        ////////////////////////
+        __unused BNRObserver *observer = [[BNRObserver alloc] init];
+        // I want to know the new and old value whenever lastTime is changed
+        [logger addObserver:observer forKeyPath:@"lastTime" options:NSKeyValueObservingOptionNew | NSKeyValueObservingOptionOld context:nil];
+        
         
         // Target-action mechanism
         // Triggers the updateLastTime selector every 2 seconds.
