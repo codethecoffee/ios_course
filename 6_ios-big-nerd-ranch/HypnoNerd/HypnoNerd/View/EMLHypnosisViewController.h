@@ -10,8 +10,8 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
-@interface EMLHypnosisViewController : UIViewController
-
+@interface EMLHypnosisViewController : UIViewController <UITextFieldDelegate>
+- (void)drawLabelsWithString:(NSString *)text;
 @end
 
 NS_ASSUME_NONNULL_END

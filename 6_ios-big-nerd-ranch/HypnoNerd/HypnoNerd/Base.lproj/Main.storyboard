@@ -55,34 +55,12 @@
                     <view key="view" contentMode="scaleToFill" id="b2H-r2-14Y">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="Bes-Zv-bhb">
-                                <rect key="frame" x="122" y="432.5" width="170" height="32"/>
-                                <segments>
-                                    <segment title="Red"/>
-                                    <segment title="Blue"/>
-                                    <segment title="Green"/>
-                                </segments>
-                                <connections>
-                                    <action selector="changeCircleColor:" destination="67N-YN-0GQ" eventType="valueChanged" id="6Sb-Jz-Mxy"/>
-                                    <action selector="colorSegmentSelect:" destination="nt9-Sc-cp6" eventType="valueChanged" id="iBm-5m-xj2"/>
-                                </connections>
-                            </segmentedControl>
-                        </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
-                        <constraints>
-                            <constraint firstItem="Bes-Zv-bhb" firstAttribute="centerY" secondItem="b2H-r2-14Y" secondAttribute="centerY" id="2Fj-nU-uNd"/>
-                            <constraint firstItem="Bes-Zv-bhb" firstAttribute="centerX" secondItem="b2H-r2-14Y" secondAttribute="centerX" id="5fb-xS-SLV"/>
-                        </constraints>
                         <viewLayoutGuide key="safeArea" id="iHg-i9-HEm"/>
                     </view>
                     <tabBarItem key="tabBarItem" title="Item 1" id="pGx-FL-1Hg"/>
-                    <connections>
-                        <outlet property="segmentView" destination="Bes-Zv-bhb" id="b5G-mi-hzd"/>
-                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="mjb-Ns-hMg" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
-                <exit id="nt9-Sc-cp6" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
             <point key="canvasLocation" x="-306" y="-425"/>
         </scene>
