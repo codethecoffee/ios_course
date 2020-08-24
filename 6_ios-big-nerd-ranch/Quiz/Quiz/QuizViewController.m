@@ -6,9 +6,9 @@
 //  Copyright © 2020 Suzy Lee. All rights reserved.
 //
 
-#import "ViewController.h"
+#import "QuizViewController.h"
 
-@interface ViewController ()
+@interface QuizViewController ()
 
 // Keeps track of which question the user is on
 @property (nonatomic) int currentQuestionIndex;
@@ -23,7 +23,7 @@
 
 @end
 
-@implementation ViewController
+@implementation QuizViewController
 
 /**
  initWithNibName is called when initializing the ViewController instance. It is called before
