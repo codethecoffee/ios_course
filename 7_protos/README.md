@@ -79,3 +79,5 @@ Let's dissect the command below:
 - `-I=my_protos`: Specify where your `.proto` files are
 - `--python_out=path/to/folder`: Generates a python source file to `path/to/folder`. You can pass in Java, C++, etc
 - `my_protos/*.proto`: Specifies that we will use all the `.proto` files in the `my_protos` folder to generate our source file.
+
+IMPORTANT NOTE: Make sure to pass an absolute file path to all of the flags. Using relative file paths has been buggy.
