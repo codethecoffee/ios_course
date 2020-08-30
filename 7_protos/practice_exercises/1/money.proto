@@ -1,0 +1,11 @@
+syntax = "proto3";
+
+message Money {
+    // The 3-letter currency code defined in ISO 4217
+    string currency_code = 1;
+
+    // The whole units of the amount
+    // For example if `currencyCode` is "USD", then 1 unit is 1 USD
+    int32 integral = 2;
+    float decimal = 3;
+}
