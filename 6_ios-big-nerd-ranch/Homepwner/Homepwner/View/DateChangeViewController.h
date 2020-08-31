@@ -1,5 +1,5 @@
 //
-//  ItemDetailViewController.h
+//  DateChangeViewController.h
 //  Homepwner
 //
 //  Created by Suzy Lee on 8/31/20.
@@ -7,17 +7,14 @@
 //
 
 #import <UIKit/UIKit.h>
+
 @class Item;
 
 NS_ASSUME_NONNULL_BEGIN
 
-@interface ItemDetailViewController : UIViewController <UITextFieldDelegate>
-
-// The current item displayed in the detail view
+@interface DateChangeViewController : UIViewController
+@property (nonatomic, weak) NSDate *selectedDate;
 @property (nonatomic, weak) Item *currItem;
-
-- (void)didTapView;
-
 @end
 
 NS_ASSUME_NONNULL_END

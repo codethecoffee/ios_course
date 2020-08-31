@@ -28,7 +28,7 @@ NS_ASSUME_NONNULL_BEGIN
 @property (nonatomic) int valueInDollars;
 
 // You should never be able to change the dateCreated field
-@property (nonatomic, readonly) NSDate *dateCreated;
+@property (nonatomic) NSDate *dateCreated;
 
 // Initializes an Item instance with random values
 + (instancetype)randomItem;

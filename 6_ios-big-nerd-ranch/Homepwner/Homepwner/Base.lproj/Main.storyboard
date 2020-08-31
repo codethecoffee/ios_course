@@ -36,6 +36,36 @@
             </objects>
             <point key="canvasLocation" x="-647" y="-563"/>
         </scene>
+        <!--Date Change View Controller-->
+        <scene sceneID="xXz-W4-Wk1">
+            <objects>
+                <viewController storyboardIdentifier="DateChangeView" id="gs0-cy-Thk" customClass="DateChangeViewController" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="mZt-1G-uBF">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <datePicker contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="dateAndTime" minuteInterval="1" translatesAutoresizingMaskIntoConstraints="NO" id="uZa-hj-u4Q">
+                                <rect key="frame" x="47" y="340" width="320" height="216"/>
+                                <connections>
+                                    <action selector="selectDate:" destination="gs0-cy-Thk" eventType="valueChanged" id="YqW-em-8fy"/>
+                                </connections>
+                            </datePicker>
+                        </subviews>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <constraints>
+                            <constraint firstItem="uZa-hj-u4Q" firstAttribute="centerX" secondItem="mZt-1G-uBF" secondAttribute="centerX" id="D8b-6Z-cbV"/>
+                            <constraint firstItem="uZa-hj-u4Q" firstAttribute="centerY" secondItem="mZt-1G-uBF" secondAttribute="centerY" id="nwv-Hm-VcO"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="h53-h7-zJ3"/>
+                    </view>
+                    <connections>
+                        <outlet property="datePicker" destination="uZa-hj-u4Q" id="UE1-fZ-7jM"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="wGQ-xD-TBY" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="968" y="-563"/>
+        </scene>
         <!--Item Detail View Controller-->
         <scene sceneID="fpl-1V-T4n">
             <objects>
@@ -45,7 +75,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="25" translatesAutoresizingMaskIntoConstraints="NO" id="Fag-08-Zo0">
-                                <rect key="frame" x="74.5" y="358.5" width="265" height="179.5"/>
+                                <rect key="frame" x="74.5" y="381" width="265" height="134"/>
                                 <subviews>
                                     <stackView opaque="NO" contentMode="scaleToFill" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="ZDJ-GD-8KR">
                                         <rect key="frame" x="0.0" y="0.0" width="265" height="134"/>
@@ -98,14 +128,23 @@
                                             </stackView>
                                         </subviews>
                                     </stackView>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4Ah-vX-9my">
-                                        <rect key="frame" x="111.5" y="159" width="42" height="20.5"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                        <nil key="textColor"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
                                 </subviews>
                             </stackView>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="8JE-vS-AWH">
+                                <rect key="frame" x="162" y="560" width="90" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Change Date"/>
+                                <connections>
+                                    <action selector="changeDate:" destination="nMK-0z-6Xa" eventType="touchUpInside" id="YKV-tX-xPP"/>
+                                </connections>
+                            </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4Ah-vX-9my">
+                                <rect key="frame" x="36" y="537" width="345" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <constraints>

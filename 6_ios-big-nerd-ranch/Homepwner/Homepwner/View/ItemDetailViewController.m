@@ -7,6 +7,7 @@
 //
 
 #import "ItemDetailViewController.h"
+#import "DateChangeViewController.h"
 #import "Item.h"
 
 @interface ItemDetailViewController ()
@@ -28,7 +29,18 @@
     _nameField.delegate = self;
     _serialField.delegate = self;
     _valueField.delegate = self;
+    _valueField.keyboardType = UIKeyboardTypeNumberPad;
+    NSLog(@"CURRENT DATE: %@", self.currItem.dateCreated);
+    
+    // Add a tap recognizer so that you can dismiss the number keyboard
+    // upon tapping anywhere on the view
+    UITapGestureRecognizer *tapRecognizer = [[UITapGestureRecognizer alloc] init];
+    [tapRecognizer addTarget:self action:@selector(didTapView)];
+    [self.view addGestureRecognizer:tapRecognizer];
+    
 }
+
+# pragma mark - Navigation
 
 - (void)viewWillAppear:(BOOL)animated {
     NSLog(@"details for item: %@", self.currItem);
@@ -58,7 +70,25 @@
     self.currItem.serialNumber = _serialField.text;
     self.currItem.valueInDollars = [_valueField.text intValue];
     
+}
+
+- (IBAction)changeDate:(id)sender {
+    DateChangeViewController *dateVC = [self.storyboard instantiateViewControllerWithIdentifier:@"DateChangeView"];
+    dateVC.currItem = self.currItem;
+    [self.navigationController pushViewController:dateVC animated:YES];
     
+}
+
+
+
+#pragma mark - UITapGestureRecognizer
+- (void)didTapView {
+    // Dismiss any keyboard that is currently the first responder on the view
+    [self.view endEditing:YES];
+    
+    // Note: Setting endEditing can be more elegant than calling resignFirstResponder
+    // for every individual textField; this property applies to ALL keyboards
+    // that could potentially be open on self.view
 }
 
 
@@ -69,6 +99,7 @@
     [textField resignFirstResponder];
     return YES;
 }
+
 
 
 @end

@@ -13,6 +13,7 @@
 		4112635A24FBBDEB00A51862 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4112635924FBBDEB00A51862 /* Assets.xcassets */; };
 		4112635D24FBBDEB00A51862 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4112635B24FBBDEB00A51862 /* LaunchScreen.storyboard */; };
 		4112636024FBBDEB00A51862 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 4112635F24FBBDEB00A51862 /* main.m */; };
+		418BB93B24FCE78800E8F811 /* DateChangeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 418BB93A24FCE78800E8F811 /* DateChangeViewController.m */; };
 		41A6457924FBD2FB006DA2A5 /* ELMItemStore.m in Sources */ = {isa = PBXBuildFile; fileRef = 41A6457824FBD2FB006DA2A5 /* ELMItemStore.m */; };
 		41AA69BE24FCC53200435DCC /* ItemDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 41AA69BD24FCC53200435DCC /* ItemDetailViewController.m */; };
 		41B806FC24FBCB4400D66A71 /* Item.m in Sources */ = {isa = PBXBuildFile; fileRef = 41B806FB24FBCB4400D66A71 /* Item.m */; };
@@ -31,6 +32,8 @@
 		4112635C24FBBDEB00A51862 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		4112635E24FBBDEB00A51862 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		4112635F24FBBDEB00A51862 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		418BB93924FCE78800E8F811 /* DateChangeViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DateChangeViewController.h; sourceTree = "<group>"; };
+		418BB93A24FCE78800E8F811 /* DateChangeViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DateChangeViewController.m; sourceTree = "<group>"; };
 		41A6457724FBD2FB006DA2A5 /* ELMItemStore.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ELMItemStore.h; sourceTree = "<group>"; };
 		41A6457824FBD2FB006DA2A5 /* ELMItemStore.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ELMItemStore.m; sourceTree = "<group>"; };
 		41AA69BC24FCC53200435DCC /* ItemDetailViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ItemDetailViewController.h; sourceTree = "<group>"; };
@@ -95,6 +98,8 @@
 				41B8070824FBCF2F00D66A71 /* ViewController.m */,
 				41AA69BC24FCC53200435DCC /* ItemDetailViewController.h */,
 				41AA69BD24FCC53200435DCC /* ItemDetailViewController.m */,
+				418BB93924FCE78800E8F811 /* DateChangeViewController.h */,
+				418BB93A24FCE78800E8F811 /* DateChangeViewController.m */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -189,6 +194,7 @@
 				41B8070024FBCBF800D66A71 /* Container.m in Sources */,
 				4112636024FBBDEB00A51862 /* main.m in Sources */,
 				41A6457924FBD2FB006DA2A5 /* ELMItemStore.m in Sources */,
+				418BB93B24FCE78800E8F811 /* DateChangeViewController.m in Sources */,
 				4112635224FBBDEB00A51862 /* SceneDelegate.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
