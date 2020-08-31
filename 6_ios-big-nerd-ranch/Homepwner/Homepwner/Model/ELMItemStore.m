@@ -50,7 +50,6 @@ static ELMItemStore *sharedStore = nil;
 }
 
 - (NSArray *)allItems {
-    NSLog(@"allItems: %@", _privateItems);
     return _privateItems;
 }
 

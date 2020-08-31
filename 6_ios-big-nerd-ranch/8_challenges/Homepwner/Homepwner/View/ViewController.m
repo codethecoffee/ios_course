@@ -8,6 +8,7 @@
 
 #import "ViewController.h"
 #import "ELMItemStore.h"
+#import "TableViewCellCustomStyle.h"
 #import "Item.h"
 #import <UIKit/UIKit.h>
 
@@ -66,12 +67,13 @@
     NSPredicate *greaterThanFifty = [NSPredicate predicateWithFormat:@"valueInDollars >= 50"];
     NSArray *expensiveItems = [[[ELMItemStore sharedStore] allItems] filteredArrayUsingPredicate:greaterThanFifty];
     
+    
     if (section == 0) {
         NSLog(@"Cheap items: %lu", [cheapItems count]);
         return [cheapItems count];
     } else {
         NSLog(@"Expensive items: %lu", [expensiveItems count]);
-        return [expensiveItems count];
+        return [expensiveItems count] + 1;
     }
     
 }
@@ -82,13 +84,14 @@
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-    UITableViewCell *currCell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:@"UITableViewCell"];
+    TableViewCellCustomStyle *currCell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:@"TableViewCellCustomStyle"];
     
     NSPredicate *lessThanFifty = [NSPredicate predicateWithFormat:@"valueInDollars < 50"];
     NSArray *cheapItems = [[[ELMItemStore sharedStore] allItems] filteredArrayUsingPredicate:lessThanFifty];
     
     NSPredicate *greaterThanFifty = [NSPredicate predicateWithFormat:@"valueInDollars >= 50"];
     NSArray *expensiveItems = [[[ELMItemStore sharedStore] allItems] filteredArrayUsingPredicate:greaterThanFifty];
+    NSArray *finalItems = [expensiveItems arrayByAddingObject:[[Item alloc] initWithItemName:@"No more items!"]];
     
     
     Item *currItem;
@@ -96,7 +99,7 @@
         currItem = cheapItems[indexPath.row];
 
     } else {
-        currItem = expensiveItems[indexPath.row];
+        currItem = finalItems[indexPath.row];
     }
     
     currCell.textLabel.text = currItem.itemName;

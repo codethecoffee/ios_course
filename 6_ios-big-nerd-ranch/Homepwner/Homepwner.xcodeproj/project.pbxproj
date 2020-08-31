@@ -14,6 +14,7 @@
 		4112635D24FBBDEB00A51862 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4112635B24FBBDEB00A51862 /* LaunchScreen.storyboard */; };
 		4112636024FBBDEB00A51862 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 4112635F24FBBDEB00A51862 /* main.m */; };
 		41A6457924FBD2FB006DA2A5 /* ELMItemStore.m in Sources */ = {isa = PBXBuildFile; fileRef = 41A6457824FBD2FB006DA2A5 /* ELMItemStore.m */; };
+		41AA69BE24FCC53200435DCC /* ItemDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 41AA69BD24FCC53200435DCC /* ItemDetailViewController.m */; };
 		41B806FC24FBCB4400D66A71 /* Item.m in Sources */ = {isa = PBXBuildFile; fileRef = 41B806FB24FBCB4400D66A71 /* Item.m */; };
 		41B8070024FBCBF800D66A71 /* Container.m in Sources */ = {isa = PBXBuildFile; fileRef = 41B806FE24FBCBF800D66A71 /* Container.m */; };
 		41B8070924FBCF2F00D66A71 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 41B8070824FBCF2F00D66A71 /* ViewController.m */; };
@@ -32,6 +33,8 @@
 		4112635F24FBBDEB00A51862 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		41A6457724FBD2FB006DA2A5 /* ELMItemStore.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ELMItemStore.h; sourceTree = "<group>"; };
 		41A6457824FBD2FB006DA2A5 /* ELMItemStore.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ELMItemStore.m; sourceTree = "<group>"; };
+		41AA69BC24FCC53200435DCC /* ItemDetailViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ItemDetailViewController.h; sourceTree = "<group>"; };
+		41AA69BD24FCC53200435DCC /* ItemDetailViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ItemDetailViewController.m; sourceTree = "<group>"; };
 		41B806FA24FBCB4400D66A71 /* Item.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Item.h; sourceTree = "<group>"; };
 		41B806FB24FBCB4400D66A71 /* Item.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Item.m; sourceTree = "<group>"; };
 		41B806FE24FBCBF800D66A71 /* Container.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Container.m; path = ../../../1...7/RandomItems/RandomItems/Model/Container.m; sourceTree = "<group>"; };
@@ -90,6 +93,8 @@
 			children = (
 				41B8070724FBCF2F00D66A71 /* ViewController.h */,
 				41B8070824FBCF2F00D66A71 /* ViewController.m */,
+				41AA69BC24FCC53200435DCC /* ItemDetailViewController.h */,
+				41AA69BD24FCC53200435DCC /* ItemDetailViewController.m */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -177,6 +182,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				41AA69BE24FCC53200435DCC /* ItemDetailViewController.m in Sources */,
 				41B8070924FBCF2F00D66A71 /* ViewController.m in Sources */,
 				41B806FC24FBCB4400D66A71 /* Item.m in Sources */,
 				4112634F24FBBDEB00A51862 /* AppDelegate.m in Sources */,

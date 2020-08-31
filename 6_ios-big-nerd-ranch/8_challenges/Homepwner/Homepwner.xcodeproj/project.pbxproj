@@ -15,6 +15,7 @@
 		4112636024FBBDEB00A51862 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 4112635F24FBBDEB00A51862 /* main.m */; };
 		41A6457924FBD2FB006DA2A5 /* ELMItemStore.m in Sources */ = {isa = PBXBuildFile; fileRef = 41A6457824FBD2FB006DA2A5 /* ELMItemStore.m */; };
 		41A6457C24FBECF1006DA2A5 /* Container.m in Sources */ = {isa = PBXBuildFile; fileRef = 41A6457B24FBECF1006DA2A5 /* Container.m */; };
+		41A6457F24FBF538006DA2A5 /* TableViewCellCustomStyle.m in Sources */ = {isa = PBXBuildFile; fileRef = 41A6457E24FBF538006DA2A5 /* TableViewCellCustomStyle.m */; };
 		41B806FC24FBCB4400D66A71 /* Item.m in Sources */ = {isa = PBXBuildFile; fileRef = 41B806FB24FBCB4400D66A71 /* Item.m */; };
 		41B8070924FBCF2F00D66A71 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 41B8070824FBCF2F00D66A71 /* ViewController.m */; };
 /* End PBXBuildFile section */
@@ -34,6 +35,8 @@
 		41A6457824FBD2FB006DA2A5 /* ELMItemStore.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ELMItemStore.m; sourceTree = "<group>"; };
 		41A6457A24FBECF1006DA2A5 /* Container.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Container.h; path = ../../../../1...7/RandomItems/RandomItems/Model/Container.h; sourceTree = "<group>"; };
 		41A6457B24FBECF1006DA2A5 /* Container.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Container.m; path = ../../../../1...7/RandomItems/RandomItems/Model/Container.m; sourceTree = "<group>"; };
+		41A6457D24FBF538006DA2A5 /* TableViewCellCustomStyle.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TableViewCellCustomStyle.h; sourceTree = "<group>"; };
+		41A6457E24FBF538006DA2A5 /* TableViewCellCustomStyle.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TableViewCellCustomStyle.m; sourceTree = "<group>"; };
 		41B806FA24FBCB4400D66A71 /* Item.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Item.h; sourceTree = "<group>"; };
 		41B806FB24FBCB4400D66A71 /* Item.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Item.m; sourceTree = "<group>"; };
 		41B8070724FBCF2F00D66A71 /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
@@ -90,6 +93,8 @@
 			children = (
 				41B8070724FBCF2F00D66A71 /* ViewController.h */,
 				41B8070824FBCF2F00D66A71 /* ViewController.m */,
+				41A6457D24FBF538006DA2A5 /* TableViewCellCustomStyle.h */,
+				41A6457E24FBF538006DA2A5 /* TableViewCellCustomStyle.m */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -181,6 +186,7 @@
 				41B806FC24FBCB4400D66A71 /* Item.m in Sources */,
 				4112634F24FBBDEB00A51862 /* AppDelegate.m in Sources */,
 				4112636024FBBDEB00A51862 /* main.m in Sources */,
+				41A6457F24FBF538006DA2A5 /* TableViewCellCustomStyle.m in Sources */,
 				41A6457924FBD2FB006DA2A5 /* ELMItemStore.m in Sources */,
 				4112635224FBBDEB00A51862 /* SceneDelegate.m in Sources */,
 				41A6457C24FBECF1006DA2A5 /* Container.m in Sources */,

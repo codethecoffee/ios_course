@@ -8,6 +8,7 @@
 
 #import "ViewController.h"
 #import "ELMItemStore.h"
+#import "ItemDetailViewController.h"
 #import "Item.h"
 #import <UIKit/UIKit.h>
 
@@ -19,34 +20,20 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-        
     UITableView *tableView = [[UITableView alloc] init];
+    
+    // Set the instantiated tableView as the root view of this
+    // table view controller
     self.tableView = tableView;
+    
+    UIButton *editButton = [[UIButton alloc] initWithFrame:CGRectMake(10, 10, 100, 50)];
+    [self.tableView addSubview:editButton];
     
     for (int i = 0; i < 5; i++) {
         [[ELMItemStore sharedStore] createItem];
     }
     
-    NSLog(@"Loaded properly!");
-
 }
-
-
-/*
-#pragma mark - Navigation
-
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
-}
-*/
-
-- (void)viewWillAppear:(BOOL)animated {
-    NSLog(@"table view is about to appear!!!");
-    
-}
-
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
     NSLog(@"NUMBER OF ITEMS: %lu", [[[ELMItemStore sharedStore] allItems] count]);
@@ -57,7 +44,6 @@
     UITableViewCell *currCell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:@"UITableViewCell"];
     
     NSArray *items = [[ELMItemStore sharedStore] allItems];
-    NSLog(@"Trying to add a new table cell!");
     Item *currItem = items[indexPath.row];
     
     currCell.textLabel.text = currItem.itemName;
@@ -66,4 +52,19 @@
     return currCell;
 }
 
+
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
+    Item *selectedItem = [[ELMItemStore sharedStore] allItems][indexPath.row];
+    ItemDetailViewController *detailVC = [self.storyboard instantiateViewControllerWithIdentifier:@"ItemDetailView"];
+    detailVC.currItem = selectedItem; // Pass in the selected item to the VC
+    [self.navigationController pushViewController:detailVC animated:YES];
+}
+
+- (void)viewWillAppear:(BOOL)animated {
+    // Always call the parent implementation before overriding!
+    [super viewWillAppear:YES];
+    
+    // Reload the table view so that it updates with edited values
+    [self.tableView reloadData];
+}
 @end
